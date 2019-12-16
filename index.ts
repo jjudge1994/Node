@@ -13,7 +13,7 @@ const SECRET = config.get("githubkey") ;
       const body = JSON.parse(chunk);
       const isMaster = body?.ref === 'refs/heads/master';
       if (isAllowed && isMaster) {
-        // do something
+        console.log("this is a test");
       }
     });
     res.end();
