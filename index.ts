@@ -15,7 +15,7 @@ const SECRET = config.get("githubkey") ;
       const isMaster = body?.ref === 'refs/heads/master';
       if (isAllowed && isMaster) {
           exec ('cd /home/fgrayli/projects/Node && bash deoploy.sh');
-        console.log("this is a test of the webhook");
+        console.log("this is a fart");
       }
     });
     res.end();
