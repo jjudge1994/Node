@@ -1,10 +1,8 @@
 import { createServer } from "http";
 import { createHmac } from "crypto";
+import * as config from "config";
+const SECRET = config.get("githubkey") ;
 
-//import http from 'http';
-//import crypto from 'crypto';
-const SECRET = 'MY_GITHUB_WEBHOOK_SECRET';
-//http
   createServer((req, res) => {
     req.on('data', chunk => {
       const signature = `sha1=${

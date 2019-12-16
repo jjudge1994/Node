@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const http_1 = require("http");
 const crypto_1 = require("crypto");
-const SECRET = 'MY_GITHUB_WEBHOOK_SECRET';
+const config = require("config");
+const SECRET = config.get("githubkey");
 http_1.createServer((req, res) => {
     req.on('data', chunk => {
         var _a;
