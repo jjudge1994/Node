@@ -15,7 +15,7 @@ const SECRET = config.get("githubkey") ;
       const isMaster = body?.ref === 'refs/heads/master';
       if (isAllowed && isMaster) {
           exec ('cd /home/fgrayli/projects/Node && npm run compile && npm run start');
-        console.log("this is a fart");
+        console.log("this is a test");
       }
     });
     res.end();
