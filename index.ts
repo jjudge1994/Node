@@ -14,7 +14,7 @@ const SECRET = config.get("githubkey") ;
       const body = JSON.parse(chunk);
       const isMaster = body?.ref === 'refs/heads/master';
       if (isAllowed && isMaster) {
-          exec ('cd /home/fgrayli/projects/Node && git pull && npm run compile && npm run start');
+          exec ('cd /home/fgrayli/projects/Node && bash deoploy.sh');
         console.log("this is a test of the webhook");
       }
     });
