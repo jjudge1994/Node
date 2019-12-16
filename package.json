@@ -5,10 +5,20 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node build/index.js",
+    "compile": "./node_modules/.bin/tsc",
+    "compile:dev": "./node_modules/.bin/tsc --watch",
+    "lint": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "express": "4.17.1"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -19,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/jjudge1994/Node/issues"
   },
-  "homepage": "https://github.com/jjudge1994/Node#readme"
+  "homepage": "https://github.com/jjudge1994/Node#readme",
+  "devDependencies": {
+    "@types/node": "^12.12.18"
+  }
 }
