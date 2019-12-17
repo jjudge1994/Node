@@ -15,12 +15,13 @@ http_1.createServer((req, res) => {
         const body = JSON.parse(chunk);
         const isMaster = ((_a = body) === null || _a === void 0 ? void 0 : _a.ref) === 'refs/heads/master';
         if (isAllowed && isMaster) {
-            try {
-                child_process_1.exec('touch test.txt');
-            }
-            catch (error) {
-                console.log(error);
-            }
+            const testscript = child_process_1.exec('sh deploy.sh /home/fgrayli/projects/Node');
+            testscript.stdout.on('data', function (data) {
+                console.log(data);
+            });
+            testscript.stderr.on('data', function (data) {
+                console.log(data);
+            });
         }
     });
     res.end();

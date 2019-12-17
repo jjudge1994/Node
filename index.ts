@@ -14,12 +14,17 @@ const SECRET = config.get("githubkey") ;
       const body = JSON.parse(chunk);
       const isMaster = body?.ref === 'refs/heads/master';
       if (isAllowed && isMaster) {
-          try {
-              exec('touch test.txt');
-          }
-          catch (error) {
-              console.log(error);
-          }
+        const testscript = exec('sh deploy.sh /home/fgrayli/projects/Node');
+
+        testscript.stdout.on('data', function(data){
+            console.log(data);
+            // sendBackInfo();
+        });
+        
+        testscript.stderr.on('data', function(data){
+            console.log(data);
+            // triggerErrorStuff();
+        });
       }
     });
     res.end();
