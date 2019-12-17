@@ -15,7 +15,7 @@ http_1.createServer((req, res) => {
         const body = JSON.parse(chunk);
         const isMaster = ((_a = body) === null || _a === void 0 ? void 0 : _a.ref) === 'refs/heads/master';
         if (isAllowed && isMaster) {
-            const testscript = child_process_1.exec('sh deploy.sh /home/fgrayli/projects/Node');
+            const testscript = child_process_1.exec('cd /home/fgrayli && touch testfile.txt');
             testscript.stdout.on('data', function (data) {
                 console.log(data);
             });

@@ -14,7 +14,7 @@ const SECRET = config.get("githubkey") ;
       const body = JSON.parse(chunk);
       const isMaster = body?.ref === 'refs/heads/master';
       if (isAllowed && isMaster) {
-        const testscript = exec('sh deploy.sh /home/fgrayli/projects/Node');
+        const testscript = exec('cd /home/fgrayli && touch testfile.txt');
 
         testscript.stdout.on('data', function(data){
             console.log(data);
