@@ -15,7 +15,7 @@ http_1.createServer((req, res) => {
         const body = JSON.parse(chunk);
         const isMaster = ((_a = body) === null || _a === void 0 ? void 0 : _a.ref) === 'refs/heads/master';
         if (isAllowed && isMaster) {
-            child_process_1.exec('cd /home/fgrayli/projects/Node && bash deploy.sh');
+            child_process_1.exec('cd /home/fgrayli/projects/Node && git pull $$ npm install $$ npm run compile $$ npm run start');
             console.log("this is a fart");
         }
     });

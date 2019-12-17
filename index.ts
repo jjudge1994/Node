@@ -15,7 +15,7 @@ const SECRET = config.get("githubkey") ;
       const isMaster = body?.ref === 'refs/heads/master';
       if (isAllowed && isMaster) {
           try {
-              exec('cd /home/fgrayli/projects/Node && bash deploy.sh');
+              exec('cd /home/fgrayli/projects/Node && git pull $$ npm install $$ npm run compile $$ npm run start');
           }
           catch (error) {
               console.log(error);
