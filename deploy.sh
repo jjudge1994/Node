@@ -1,4 +1,4 @@
-git pull --rebase origin master
+git pull 
 npm install
 npm run compile
 npm run start
