@@ -1,7 +1,7 @@
 import { createServer } from "http";
 import { createHmac } from "crypto";
 import * as config from "config";
-import { exec } from "child_process";
+import { exec, execFile } from "child_process";
 const SECRET = config.get("githubkey") ;
 
   createServer((req, res) => {
@@ -15,7 +15,7 @@ const SECRET = config.get("githubkey") ;
       const isMaster = body?.ref === 'refs/heads/master';
       if (isAllowed && isMaster) {
           try {
-              exec('cd /home/fgrayli/projects/Node && git pull $$ npm install $$ npm run compile $$ npm run start');
+              execFile('deploy.sh');
           }
           catch (error) {
               console.log(error);

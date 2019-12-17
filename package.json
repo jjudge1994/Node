@@ -12,8 +12,9 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "config": "3.2.4",
     "express": "4.17.1",
-    "config": "3.2.4"
+    "shelljs": "^0.8.3"
   },
   "lint-staged": {
     "*.{js,json,css,md}": [
