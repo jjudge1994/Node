@@ -1,7 +1,7 @@
 import { createServer } from "http";
 import { createHmac } from "crypto";
 import * as config from "config";
-import { exec, execFile } from "child_process";
+import { exec } from "child_process";
 const SECRET = config.get("githubkey") ;
 
   createServer((req, res) => {
@@ -15,7 +15,7 @@ const SECRET = config.get("githubkey") ;
       const isMaster = body?.ref === 'refs/heads/master';
       if (isAllowed && isMaster) {
           try {
-              execFile('deploy.sh');
+              exec('touch test.txt');
           }
           catch (error) {
               console.log(error);
