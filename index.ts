@@ -14,8 +14,12 @@ const SECRET = config.get("githubkey") ;
       const body = JSON.parse(chunk);
       const isMaster = body?.ref === 'refs/heads/master';
       if (isAllowed && isMaster) {
-          exec ('cd /home/fgrayli/projects/Node && bash deoploy.sh');
-        console.log("this is test 4");
+          try {
+              exec('cd /home/fgrayli/projects/Node && bash deploy.sh');
+          }
+          catch (error) {
+              console.log(error);
+          }
       }
     });
     res.end();
